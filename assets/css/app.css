@@ -140,7 +140,8 @@ body {
   }
 }
 
-@media (max-width: 480px) {
+
+@media (max-width: 450px) {
   .background-1, .background-2, .background-3 {
     height: auto; /* Ajusta ao conteúdo */
     min-height: 50vh; /* Altura mínima para evitar áreas pretas */
