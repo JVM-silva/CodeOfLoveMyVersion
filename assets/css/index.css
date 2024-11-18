@@ -18,7 +18,7 @@ body {
 }
 
 img {
-  max-width: 100%; /* Responsivo */
+  max-width: auto; /* Responsivo */
   height: auto;
 }
 
@@ -46,6 +46,23 @@ img {
   display: none; /* Oculto por padrão */
 }
 
+.responsive-img {
+  max-width: 100%; /* A imagem não será maior que o contêiner */
+  height: auto;    /* Mantém a proporção da imagem */
+  display: block;  /* Remove espaços extras em imagens */
+  object-fit: cover; /* Garante que a imagem se ajuste ao contêiner */
+}
+
+.content {
+  display: flex;           /* Flexbox para centralizar */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+  width: 100%;             /* O contêiner ocupa toda a largura da tela */
+  height: auto;            /* Ajusta altura automaticamente */
+  padding: 20px;           /* Espaçamento ao redor da imagem */
+  box-sizing: border-box;  /* Garante que o padding seja considerado no tamanho total */
+}
+
 /* Media Queries */
 
 /* Telas menores que 768px (tablets e celulares grandes) */
@@ -65,6 +82,11 @@ img {
   .item {
     flex: 1 1 calc(50% - 10px); /* 2 itens por linha */
   }
+
+  .responsive-img {
+    width: 80%; /* Reduz a largura para 80% da tela */
+    margin: 0 auto; /* Centraliza no contêiner */
+  }
 }
 
 /* Telas menores que 480px (celulares pequenos) */
@@ -79,5 +101,8 @@ img {
 
   .item {
     flex: 1 1 100%; /* 1 item por linha */
+  }
+  .responsive-img {
+    width: 100%; /* Ocupa 100% da largura em telas muito pequenas */
   }
 }
