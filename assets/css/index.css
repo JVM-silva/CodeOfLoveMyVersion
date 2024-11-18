@@ -1,8 +1,11 @@
+/* Reset básico para evitar inconsistências */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Estilos globais */
 body {
   background-color: #020202;
   display: flex;
@@ -10,15 +13,71 @@ body {
   justify-content: center;
   width: 100%;
   height: 100vh;
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
 }
-.content{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
+
 img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%; /* Responsivo */
+  height: auto;
+}
+
+/* Contêiner central */
+.container {
+  max-width: 1200px; /* Máxima largura */
+  margin: 0 auto; /* Centraliza na página */
+  display: flex;
+  flex-wrap: wrap; /* Permite quebra de linha */
+  gap: 10px; /* Espaço entre itens */
+}
+
+/* Itens dentro do contêiner */
+.item {
+  flex: 1 1 calc(33.33% - 10px); /* 3 itens por linha */
+}
+
+/* Estilos específicos */
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-mobile {
+  display: none; /* Oculto por padrão */
+}
+
+/* Media Queries */
+
+/* Telas menores que 768px (tablets e celulares grandes) */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px; /* Adiciona espaçamento interno */
+  }
+
+  .menu {
+    display: none; /* Esconde o menu tradicional */
+  }
+
+  .menu-mobile {
+    display: block; /* Mostra um menu para celular */
+  }
+
+  .item {
+    flex: 1 1 calc(50% - 10px); /* 2 itens por linha */
+  }
+}
+
+/* Telas menores que 480px (celulares pequenos) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px; /* Ajusta tamanho da fonte */
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Reduz tamanho dos títulos */
+  }
+
+  .item {
+    flex: 1 1 100%; /* 1 item por linha */
+  }
 }
