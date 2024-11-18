@@ -43,9 +43,12 @@ body {
 .cta {
   gap: 20px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 35%; /* Ocupa toda a largura do contêiner */
+  padding: 10px;
 }
 .btn {
   width: 140px;
@@ -105,9 +108,9 @@ body {
 }
 @media (max-width: 768px) {
   .background-1, .background-2, .background-3 {
-    height: auto; /* Ajusta a altura para o conteúdo */
-    padding: 20px; /* Adiciona espaçamento interno */
-    background-position: center;
+    height: auto; /* Ajusta ao conteúdo */
+    min-height: 50vh; /* Altura mínima para evitar áreas pretas */
+    padding: 20px;
   }
   .cta {
     flex-direction: column; /* Organiza os botões verticalmente */
@@ -132,15 +135,16 @@ body {
     border-radius: 10px; /* Mantém o estilo arredondado */
   }
   body {
-    font-size: 16px; /* Reduz o tamanho da fonte */
+    font-size: 14px; /* Reduz tamanho da fonte */
+    padding: 0 10px; /* Adiciona espaçamento interno */
   }
 }
 
 @media (max-width: 480px) {
   .background-1, .background-2, .background-3 {
-    height: auto; /* Permite que os elementos ocupem altura proporcional */
-    padding: 10px; /* Reduz o espaçamento interno */
-    background-position: top; /* Foca na parte superior em telas pequenas */
+    height: auto; /* Ajusta ao conteúdo */
+    min-height: 50vh; /* Altura mínima para evitar áreas pretas */
+    padding: 20px;
   }
   .btn {
     font-size: 0.8rem; /* Ajusta o texto para telas menores */
@@ -150,13 +154,14 @@ body {
     font-size: 0.8rem; /* Diminui ainda mais em telas menores */
   }
   .cta {
-    flex-direction: column; /* Organiza os elementos verticalmente */
-    align-items: center; /* Centraliza os botões */
+    flex-direction: column; /* Botões em coluna */
+    gap: 10px; /* Espaço menor entre os botões */
   }
   ::-webkit-scrollbar {
     width: 6px; /* Ainda menor em telas pequenas */
   }
   body {
-    font-size: 14px; /* Reduz ainda mais em telas menores */
+    font-size: 12px; /* Ajusta para telas muito pequenas */
+    padding: 0 5px;
   }
 }
