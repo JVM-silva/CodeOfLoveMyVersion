@@ -21,25 +21,25 @@ body {
   width: 100%;
 }
 .background-1 {
-  height: 100vh;
+  height: 80vh; /* Aumenta a altura da "box" */
   width: 100%;
-  position: relative; /* Garante que o vídeo fique dentro dessa área */
-  overflow: hidden; /* Garante que o vídeo não saia da área do contêiner */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Centraliza o vídeo horizontalmente */
+  align-items: center; /* Centraliza o vídeo verticalmente */
 }
 
 #bg-video {
-  position: absolute; /* Posiciona o vídeo atrás dos outros elementos */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Faz o vídeo cobrir todo o espaço sem distorcer */
-  z-index: -1; /* Coloca o vídeo atrás dos outros elementos */
+  width: 80%; /* Reduz o tamanho do vídeo */
+  height: auto;
+  object-fit: contain; /* Faz o vídeo se ajustar sem distorcer */
+  z-index: -1;
 }
 .background-2 {
   height: 100vh;
   width: 100%;
-  background: center / cover no-repeat url("../img/background-2.png");
+  background: center / cover no-repeat url("../img/background-2.gif");
   background-attachment: fixed;
 }
 .background-3 {
@@ -118,62 +118,64 @@ body {
   background-color: var(--main-color);
 }
 @media (max-width: 768px) {
-  .background-1, .background-2, .background-3 {
-    height: auto; /* Ajusta ao conteúdo */
-    min-height: 50vh; /* Altura mínima para evitar áreas pretas */
-    padding: 20px;
+  .background-1 {
+    height: auto;
+    min-height: 60vh;
   }
+
+  #bg-video {
+    width: 90%; /* Ajusta o vídeo para ser menor em telas menores */
+    min-height: 60vh;
+    object-fit: contain;
+  }
+
   .cta {
-    flex-direction: column; /* Organiza os botões verticalmente */
-    gap: 15px; /* Reduz o espaço entre os botões */
-    padding: 10px; /* Adiciona espaço interno */
-    flex-wrap: wrap; /* Permite que os elementos quebrem linha */
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    flex-wrap: wrap;
   }
 
   .btn {
-    width: 100%; /* Os botões ocupam toda a largura do contêiner */
-    height: 40px; /* Reduz a altura */
-    font-size: 0.9rem; /* Diminui o texto */
+    width: 100%;
+    height: 40px;
+    font-size: 0.9rem;
   }
   .btn-text-one, .btn-text-two {
-    font-size: 1rem; /* Ajusta o tamanho do texto */
+    font-size: 1rem;
   }
   ::-webkit-scrollbar {
-    width: 8px; /* Reduz a largura do scrollbar */
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px; /* Mantém o estilo arredondado */
-  }
-  body {
-    font-size: 14px; /* Reduz tamanho da fonte */
-    padding: 0 10px; /* Adiciona espaçamento interno */
+    width: 8px;
   }
 }
-
-
 @media (max-width: 450px) {
-  .background-1, .background-2, .background-3 {
-    height: auto; /* Ajusta ao conteúdo */
-    min-height: 50vh; /* Altura mínima para evitar áreas pretas */
-    padding: 20px;
+  .background-1 {
+    height: auto;
+    min-height: 50vh;
   }
-  .btn {
-    font-size: 0.8rem; /* Ajusta o texto para telas menores */
-    padding: 5px; /* Reduz o padding dos botões */
+
+  #bg-video {
+    width: 100%; /* Ajusta o vídeo para ser ainda menor em telas menores */
+    min-height: 50vh;
+    object-fit: contain;
   }
-  .btn-text-one, .btn-text-two {
-    font-size: 0.8rem; /* Diminui ainda mais em telas menores */
-  }
+
   .cta {
-    flex-direction: column; /* Botões em coluna */
-    gap: 10px; /* Espaço menor entre os botões */
+    width: 90%;
+    gap: 10px;
   }
+
+  .btn {
+    width: 100%;
+    height: 35px;
+    font-size: 0.8rem;
+  }
+
+  .btn-text-one, .btn-text-two {
+    font-size: 0.9rem;
+  }
+
   ::-webkit-scrollbar {
-    width: 6px; /* Ainda menor em telas pequenas */
-  }
-  body {
-    font-size: 12px; /* Ajusta para telas muito pequenas */
-    padding: 0 5px;
+    width: 6px;
   }
 }
